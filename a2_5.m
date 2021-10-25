@@ -8,7 +8,7 @@ x1 = 0.05; x2 = 0.15;
 f = @(x) sqrt(x+1);
 y1 = polyval(p,x1)
 y2 = polyval(p,x2)
-error_x1 = abs(f(x1)-y1);
+error_x1 = abs(f(x1)-y1)
 error_x2 = abs(f(x2)-y2)
 h  = (b-a)/n;
-error_bound =  f(0.3)*1/(4*(n+1))*h^(n+1)
+error_bound =  (15/16/(0+1)^(7/2))*(1/(4*(n+1))*h^(n+1))
