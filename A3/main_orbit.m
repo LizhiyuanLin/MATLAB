@@ -58,7 +58,7 @@ Uranus_coeff = Uranus_A\Uranus_b;
 Neptune_coeff = Neptune_A\Neptune_b;
 Pluto_coeff = Pluto_A\Pluto_b;
 %plot Jupiter
-plot(x,y);
+plot(Jupiter_x,Jupiter_y);
 hold on;
-[xs, ys] = meshgrid(min(x)-1:0.1:max(x)+1, min(y)-1:0.1:max(y)+1);
-contour(xs, ys, a*ys.^2+b*xs.*ys+c*xs+d*ys+e-xs.^2, [0, 0], 'k--', 'LineWidth', 1);
+[xs, ys] = meshgrid(min(Jupiter_x)-1:0.1:max(Jupiter_x)+1, min(Jupiter_y)-1:0.1:max(Jupiter_y)+1);
+contour(xs, ys, Jupiter_coeff(1)*ys.^2+Jupiter_coeff(2)*xs.*ys+Jupiter_coeff(3)*xs+Jupiter_coeff(4)*ys+Jupiter_coeff(5)-xs.^2, [0, 0], 'k--', 'LineWidth', 1);
