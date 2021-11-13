@@ -57,7 +57,16 @@ Saturn_coeff = Saturn_A\Saturn_b;
 Uranus_coeff = Uranus_A\Uranus_b;
 Neptune_coeff = Neptune_A\Neptune_b;
 Pluto_coeff = Pluto_A\Pluto_b;
-%plot Jupiter
+%print table
+PlanetName = ["Jupiter"; "Saturn"; "Uranus"; "Neptune"; "Pluto"];
+a = [Jupiter_coeff(1); Saturn_coeff(1); Uranus_coeff(1); Neptune_coeff(1); Pluto_coeff(1)];
+b = [Jupiter_coeff(2); Saturn_coeff(2); Uranus_coeff(2); Neptune_coeff(2); Pluto_coeff(2)];
+c = [Jupiter_coeff(3); Saturn_coeff(3); Uranus_coeff(3); Neptune_coeff(3); Pluto_coeff(3)];
+d = [Jupiter_coeff(4); Saturn_coeff(4); Uranus_coeff(4); Neptune_coeff(4); Pluto_coeff(4)];
+e = [Jupiter_coeff(5); Saturn_coeff(5); Uranus_coeff(5); Neptune_coeff(5); Pluto_coeff(5)];
+coeffs = table(PlanetName, a, b, c, d, e);
+disp(coeffs);
+%plot Jupiter to check correctness
 plot(Jupiter_x,Jupiter_y);
 hold on;
 [xs, ys] = meshgrid(min(Jupiter_x)-1:0.1:max(Jupiter_x)+1, min(Jupiter_y)-1:0.1:max(Jupiter_y)+1);
