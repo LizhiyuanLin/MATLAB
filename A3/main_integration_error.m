@@ -17,6 +17,7 @@ for i=1:10
     simpson_errors(i) = abs(accurate-constant*comp_simpson);
 end
 loglog(h, trapizoid_errors, h, midpoint_errors, h, simpson_errors);
+legend("trapezoid", "midpoint", "simpson");
 % construct A and b for trapezoid
 A_trapezoid = zeros(10, 2);
 b_trapezoid = zeros(10, 1);
