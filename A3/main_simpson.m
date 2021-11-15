@@ -1,7 +1,7 @@
-f = @(x) sin(x);
+f = @(x) exp(x);
 a = 0;
-b = 1;
-n = 120000;
+b = 8;
+n = 388000;
 tol = 1e-6;
 % quad
 accurate = quad(f,a,b, 1e-2*tol);
