@@ -71,3 +71,23 @@ plot(Jupiter_x,Jupiter_y);
 hold on;
 [xs, ys] = meshgrid(min(Jupiter_x)-1:0.1:max(Jupiter_x)+1, min(Jupiter_y)-1:0.1:max(Jupiter_y)+1);
 contour(xs, ys, Jupiter_coeff(1)*ys.^2+Jupiter_coeff(2)*xs.*ys+Jupiter_coeff(3)*xs+Jupiter_coeff(4)*ys+Jupiter_coeff(5)-xs.^2, [0, 0], 'k--', 'LineWidth', 1);
+%plot Saturn to check correctness
+plot(Saturn_x,Saturn_y);
+hold on;
+[xs, ys] = meshgrid(min(Saturn_x)-1:0.1:max(Saturn_x)+1, min(Saturn_y)-1:0.1:max(Saturn_y)+1);
+contour(xs, ys, Saturn_coeff(1)*ys.^2+Saturn_coeff(2)*xs.*ys+Saturn_coeff(3)*xs+Saturn_coeff(4)*ys+Saturn_coeff(5)-xs.^2, [0, 0], 'k--', 'LineWidth', 1);
+%plot Uranus to check correctness
+plot(Uranus_x,Uranus_y);
+hold on;
+[xs, ys] = meshgrid(min(Uranus_x)-1:0.1:max(Uranus_x)+1, min(Uranus_y)-1:0.1:max(Uranus_y)+1);
+contour(xs, ys, Uranus_coeff(1)*ys.^2+Uranus_coeff(2)*xs.*ys+Uranus_coeff(3)*xs+Uranus_coeff(4)*ys+Uranus_coeff(5)-xs.^2, [0, 0], 'k--', 'LineWidth', 1);
+%plot Neptune to check correctness
+plot(Neptune_x,Neptune_y);
+hold on;
+[xs, ys] = meshgrid(min(Neptune_x)-1:0.1:max(Neptune_x)+1, min(Neptune_y)-1:0.1:max(Neptune_y)+1);
+contour(xs, ys, Neptune_coeff(1)*ys.^2+Neptune_coeff(2)*xs.*ys+Neptune_coeff(3)*xs+Neptune_coeff(4)*ys+Neptune_coeff(5)-xs.^2, [0, 0], 'k--', 'LineWidth', 1);
+%plot Pluto to check correctness
+plot(Pluto_x,Pluto_y);
+hold on;
+[xs, ys] = meshgrid(min(Pluto_x)-1:0.1:max(Pluto_x)+1, min(Pluto_y)-1:0.1:max(Pluto_y)+1);
+contour(xs, ys, Pluto_coeff(1)*ys.^2+Pluto_coeff(2)*xs.*ys+Pluto_coeff(3)*xs+Pluto_coeff(4)*ys+Pluto_coeff(5)-xs.^2, [0, 0], 'k--', 'LineWidth', 1);
