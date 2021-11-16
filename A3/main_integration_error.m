@@ -13,7 +13,7 @@ for i=1:10
     % midpoint quadrature
     midpoint_errors(i) = abs(accurate-constant*composite_midpoint(f, 0, x, n));
     % midpoint quadrature
-    [C1, comp_simpson] = composite_simpson(f, 0, x, n);
+    [~, comp_simpson] = composite_simpson(f, 0, x, n);
     simpson_errors(i) = abs(accurate-constant*comp_simpson);
 end
 loglog(h, trapizoid_errors, h, midpoint_errors, h, simpson_errors);
