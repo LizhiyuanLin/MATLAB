@@ -31,9 +31,6 @@ for counter = 1:niter
     cost(counter) = newcost;
     fprintf("i=%d  %e\n", counter, newcost); 
 end
-
-save(file,'W2','W3','W4','b2','b3','b4');
-
 % Show decay of cost function  
 save costvec
 semilogy([1:1e4:niter],cost(1:1e4:niter))
@@ -49,5 +46,5 @@ semilogy([1:1e4:niter],cost(1:1e4:niter))
      end
      costval = norm(costvec,2)^2;
   end % of nested function
-
+save(file, 'W2','W3','W4','b2','b3','b4');
 end
