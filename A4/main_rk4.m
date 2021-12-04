@@ -36,14 +36,14 @@ x_output_20000 = RK4_System1(n,h,t,xi,nsteps);
 
 t = tiledlayout(2,2);
 nexttile
-plot(x_output_100(3,:),x_output_100(1,:))
+plot(x_output_100(1,:),x_output_100(3,:))
 title('100 steps')
 nexttile
-plot(x_output_1000(3,:),x_output_1000(1,:))
+plot(x_output_1000(1,:),x_output_1000(3,:))
 title('1000 steps')
 nexttile
-plot(x_output_10000(3,:),x_output_10000(1,:))
+plot(x_output_10000(1,:),x_output_10000(3,:))
 title('10000 steps')
 nexttile
-plot(x_output_20000(3,:),x_output_20000(1,:))
+plot(x_output_20000(1,:),x_output_20000(3,:))
 title('20000 steps')
