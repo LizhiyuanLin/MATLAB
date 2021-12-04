@@ -1,4 +1,4 @@
-neurons = [15 15];
-learning_rate = 0.2;
+neurons = [20 25];
+learning_rate = 0.11;
 niter = 1e6;
 main_nn(neurons, learning_rate, niter)
