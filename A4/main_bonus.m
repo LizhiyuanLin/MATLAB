@@ -32,22 +32,22 @@ plot(t,y(:,8))
 xlim([0 5])
 title('y(8) on [0,5]')
 % part b
-options = odeset('RelTol',1e-6,'Stats','on');
+options = odeset('RelTol',1e-6,'AbsTol',1e-6);
 %ode23s
 tic
-[~, ~, stats_23s] = ode23s(@HIRES_System,[0,321.8122],[1,0,0,0,0,0,0,0.0057],options);
+x_23s = ode23s(@HIRES_System,[0,321.8122],[1,0,0,0,0,0,0,0.0057],options);
 ode23s_CPU_time = toc;
 %ode15s
 tic
-[~, ~, stats_15s] = ode15s(@HIRES_System,[0,321.8122],[1,0,0,0,0,0,0,0.0057],options);
+x_15s = ode15s(@HIRES_System,[0,321.8122],[1,0,0,0,0,0,0,0.0057],options);
 ode15s_CPU_time = toc;
 %ode45
 tic
-[~, ~, stats_45] = ode45(@HIRES_System,[0,321.8122],[1,0,0,0,0,0,0,0.0057],options);
+x_45 = ode45(@HIRES_System,[0,321.8122],[1,0,0,0,0,0,0,0.0057],options);
 ode45_CPU_time = toc;
 fprintf("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tnumber of\n");
 fprintf("\t\t\t\t\t------------------------------------------------------------------------------------\n");
 fprintf("solver\tCPU time\tsteps\tfailed steps\tfunction evaluations\tLU decompositions\tnonlinear solves\n");
-fprintf("ode23s\t%.4e\t%d\t\t\t%d\t\t\t\t\t%d\t\t\t\t\t%d\t\t\t\t\t%d\n", ode23s_CPU_time, stats_23s(1)+stats_23s(2), stats_23s(2), stats_23s(3), stats_23s(5), stats_23s(6));
-fprintf("ode15s\t%.4e\t%d\t\t\t%d\t\t\t\t\t%d\t\t\t\t\t\t%d\t\t\t\t\t%d\n", ode15s_CPU_time, stats_15s(1)+stats_15s(2), stats_15s(2), stats_15s(3), stats_15s(5), stats_15s(6));
-fprintf("ode45\t%.4e\t%d\t\t%d\t\t\t\t\t%d\n", ode45_CPU_time, stats_45(1)+stats_45(2), stats_45(2), stats_45(3));
+fprintf("ode23s\t%.4e\t%d\t\t\t%d\t\t\t\t\t%d\t\t\t\t\t%d\t\t\t\t\t%d\n", ode23s_CPU_time, x_23s.stats.nsteps, x_23s.stats.nfailed, x_23s.stats.nfevals, x_23s.stats.ndecomps, x_23s.stats.nsolves);
+fprintf("ode15s\t%.4e\t%d\t\t\t%d\t\t\t\t\t%d\t\t\t\t\t\t%d\t\t\t\t\t%d\n", ode15s_CPU_time, x_15s.stats.nsteps, x_15s.stats.nfailed, x_15s.stats.nfevals, x_15s.stats.ndecomps, x_15s.stats.nsolves);
+fprintf("ode45\t%.4e\t%d\t\t%d\t\t\t\t\t%d\n", ode45_CPU_time, x_45.stats.nsteps, x_45.stats.nfailed, x_45.stats.nfevals);
