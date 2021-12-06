@@ -1,14 +1,14 @@
 function T = findPeriod(t, x, y, z)
-    x0 = 1*365/100;
+    vector0 = [x(1) y(1) z(1)];
+    x_size = size(x);
+    n = x_size(1);
+    tol = 0.028;
     
-    X_p = interp1(t, x, 1:0.01:500, 'spline');
-    x_period = seqperiod(X_p,1e-2);
-    
-    Y_p = interp1(t, y, 1:0.01:500, 'spline');
-    y_period = seqperiod(Y_p,1e-2);
-    
-    Z_p = interp1(t, z, 1:0.01:500, 'spline');
-    z_period = seqperiod(Z_p,1e-2);
-    
-    T = max([x_period y_period z_period])*100/365;
+    for i=100:n
+        if abs(norm([x(i) y(i) z(i)]-vector0))<tol && sign(x(i))==sign(x(1)) && sign(y(i))==sign(y(1)) && sign(z(i))==sign(z(1))
+                T = t(i)*100/365;
+            return;
+        end
+    end
+    T = -1;
 end
