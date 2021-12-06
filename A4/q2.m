@@ -12,5 +12,9 @@ for i=1:n
 end
 plot(x,horner_result);
 legend('horner');
+f = @(x) (x-2)^9;
 f_horner = @(x) horner(x);
-Bisection(f_horner, a, b, 1e-6)
+Bisection(f, a, b, 161, 1e-6)
+Bisection(f_horner, a, b, 161, 1e-6)
+f_fsolve = fsolve(@(x)(x-2)^9,1.9)
+expanded_f_fsolve = fsolve(@(x) x^9-18*x^8+144*x^7-672*x^6+2016*x^5-4032*x^4+5376*x^3-4608*x^2+2304*x-512,1.9)
